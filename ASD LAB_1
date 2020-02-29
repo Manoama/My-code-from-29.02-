@@ -1,0 +1,54 @@
+#include<iostream>
+using namespace std;
+int c = 0;
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////
+//                                 ЛАБА 1
+/////////////////////////////////////////////////////////////////////////////////////
+
+// Hanoi
+
+// by myself
+
+void hanoi(int n, char start, char finish, char temp)
+{
+	
+	if (n == 0)
+	{
+		return;
+	}
+	else
+	{
+		hanoi(n - 1, start, temp,finish);
+		cout << "move disk from tower " << start << " to tower " << finish << endl << endl << endl;
+		++c;
+		hanoi(n - 1, temp, finish,start);
+	}
+}
+
+
+// from Youtube
+
+void hanoi_tower(int n, int a, int b)
+{
+	if(n == 1)
+		cout << "move disk " << a << " to disk " << b << endl;
+	else
+	{
+		int tmp = 6 - a - b;
+		hanoi_tower(n - 1, a, tmp);
+		cout << "move disk " << a << " to disk " << b << endl;
+		hanoi_tower(n - 1, tmp, b);
+	}
+}
+
+int main()
+{
+	system("pause");
+	return 0;
+}
+
+
+
